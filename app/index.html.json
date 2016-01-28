@@ -1,0 +1,23 @@
+{
+  "images": [{
+    "src": "http://lorempixel.com/400/200/animals/1",
+    "alt": "Image one alt text",
+    "url": "#na",
+    "caption": "Caption 1"
+  }, {
+    "src": "http://lorempixel.com/400/200/animals/2",
+    "alt": "Image two alt text",
+    "url": "#na",
+    "caption": "Caption 2"
+  }, {
+    "src": "http://lorempixel.com/400/200/animals/3",
+    "alt": "Image three alt text",
+    "url": "#na",
+    "caption": "Caption 3"
+  }, {
+    "src": "http://lorempixel.com/400/200/animals/4",
+    "alt": "Image four alt text",
+    "url": "#na",
+    "caption": "Caption 4"
+  }]
+}

@@ -1,0 +1,19 @@
+{% extends '_layout.html' %}
+
+{% set pageTitle = 'Contact' %}
+
+{% block content %}
+
+{# Header #}
+{% include '_header.html' %}
+
+<h2>This is the {{pageTitle}} page</h2>
+
+{# Navigation - contact #}
+{% import '_navigation.macro.html' as nav %}
+{{nav.active('contact')}}
+
+{# Footer #}
+{% include '_footer.html' %}
+
+{% endblock %}
