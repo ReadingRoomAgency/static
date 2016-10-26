@@ -9,11 +9,7 @@ Gulp Template
 
   Nunjucks is a js port of Jinja, I found the [Jinja documentation](http://jinja.pocoo.org/docs/) more useful than [Nunjucks](https://mozilla.github.io/nunjucks/templating.html).
 
-* **Bower for project front end dependencies**
-
-  Things like Sass and jQuery plugins.
-
-* **npm and gulp for build tasks**
+* **npm for package management and gulp for build tasks**
 
   All the fancy node stuff.
 
@@ -23,8 +19,6 @@ Installation
 ------------
 
 npm install
-
-bower install
 
 Run
 ---
