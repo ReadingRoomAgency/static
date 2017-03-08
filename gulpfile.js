@@ -37,6 +37,7 @@ gulp.task('nunjucks', () => {
   .pipe(browserSync.stream());
 });
 
+// Lint scss
 gulp.task('lint-scss', () => {
   gulp.src([
     './app/_assets/scss/*.scss',
@@ -51,6 +52,7 @@ gulp.task('lint-scss', () => {
   }));
 });
 
+// Compile scss
 gulp.task('sass', ['lint-scss'], () => {
   gulp.src('./app/_assets/scss/*.scss')
   .pipe(sass().on('error', sass.logError))
@@ -67,6 +69,7 @@ gulp.task('sass', ['lint-scss'], () => {
   .pipe(browserSync.stream());
 });
 
+// Transfer images from app to dist
 gulp.task('images', () => {
   gulp.src([
     './app/_assets/img/**/*.{jpg,png,svg}',
@@ -75,12 +78,14 @@ gulp.task('images', () => {
   .pipe(browserSync.stream());
 });
 
+// Transfer fonts from app to dist
 gulp.task('fonts', () => {
   gulp.src(['./app/_assets/fonts/*.{woff,woff2}'])
   .pipe(gulp.dest('./dist/_assets/fonts'))
   .pipe(browserSync.stream());
 });
 
+// Transfer video from app to dist
 gulp.task('video', () => {
   gulp.src(['./app/_assets/video/*.{mp4,webm}'])
   .pipe(gulp.dest('./dist/_assets/video'))
@@ -98,6 +103,7 @@ gulp.task('lint-js', () => {
   .pipe(eslint.failAfterError());
 });
 
+// Browserify
 gulp.task('browserify', ['lint-js'], () => {
   browserify({ debug: true })
   // return browserify('./app/_assets/js/main.js')
@@ -112,6 +118,7 @@ gulp.task('browserify', ['lint-js'], () => {
   .pipe(browserSync.stream());
 });
 
+// Move misc files from app to dist
 gulp.task('misc', () => {
   const miscFiles = ([
     './app/.htaccess',
@@ -121,6 +128,7 @@ gulp.task('misc', () => {
   .pipe(gulp.dest('./dist'));
 });
 
+// Serve and watch folders
 gulp.task('serve', [
   'nunjucks',
   'sass',
