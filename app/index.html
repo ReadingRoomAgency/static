@@ -1,15 +1,15 @@
 {% extends '_layout.html' %}
 
 {% set pageTitle = 'Home' %}
+{% set primaryActivePage = 'home' %}
 
 {% block content %}
 
 {# Header #}
-{% include '_header.html' %}
+{% include './header/_header.html' %}
 
 {# Navigation - home #}
-{% import '_navigation.macro.html' as nav %}
-{{nav.active("home")}}
+{% include './navigation/_navigation.html' %}
 
 <article>
   <h2>This is the {{pageTitle}} page</h2>
@@ -50,6 +50,6 @@
 </aside>
 
 {# Footer #}
-{% include '_footer.html' %}
+{% include './footer/_footer.html' %}
 
 {% endblock %}

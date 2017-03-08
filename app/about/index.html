@@ -1,19 +1,19 @@
 {% extends '_layout.html' %}
 
 {% set pageTitle = 'About' %}
+{% set primaryActivePage = 'about' %}
 
 {% block content %}
 
 {# Header #}
-{% include '_header.html' %}
+{% include './header/_header.html' %}
 
 <h2>This is the {{pageTitle}} page</h2>
 
 {# Navigation - home #}
-{% import '_navigation.macro.html' as nav %}
-{{nav.active('about')}}
+{% include './navigation/_navigation.html' %}
 
 {# Footer #}
-{% include '_footer.html' %}
+{% include './footer/_footer.html' %}
 
 {% endblock %}
