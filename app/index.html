@@ -5,51 +5,18 @@
 
 {% block content %}
 
-{# Header #}
-{% include './header/_header.html' %}
-
-{# Navigation - home #}
-{% include './navigation/_navigation.html' %}
-
-<article>
-  <h2>This is the {{pageTitle}} page</h2>
-  <div class="Gallery">
-    {# Loops through "images" array #}
-    {% for image in images %}
-    <div class="Gallery-item">
-      <a href="{{image.url}}">
-        <img src="{{image.src}}" alt="{{image.alt}}" height="200" width="400">
-      </a>
-      <p>{{image.caption}}</p>
-    </div>
-    {% endfor %}
-  </div>
-</article>
-
-<aside>
-  {# Spotlight 1 #}
-  {% set spotlight = {
-    'header': 'Spotlight header 1',
-    'paragraph': 'Lorem ipsum'
-  } %}
-  {% include '_spotlight.html' %}
-
-  {# Spotlight 2 #}
-  {% set spotlight = {
-    'header': 'Spotlight header 2',
-    'paragraph': 'Lorem ipsum dolor sit amet.'
-  } %}
-  {% include '_spotlight.html' %}
-
-  {# Spotlight 3 #}
-  {% set spotlight = {
-    'header': 'Spotlight header 3',
-    'paragraph': 'Lorem ipsum dolor sit amet herp derp.'
-  } %}
-  {% include '_spotlight.html' %}
-</aside>
-
-{# Footer #}
-{% include './footer/_footer.html' %}
+{% for component in pageData %}
+  {% set componentData = component.componentData %}
+  {% if component.componentName === 'navigation' %}
+    {# Navigation - home #}
+    {% include './navigation/_navigation.html' %}
+  {% elif component.componentName === 'gallery' %}
+    {# Gallery - home #}
+    {% include './gallery/_gallery.html' %}
+  {% elif component.componentName === 'spotlight' %}
+    {# Spotlight - home #}
+    {% include './spotlight/_spotlight.html' %}
+  {% endif %}
+{% endfor %}
 
 {% endblock %}

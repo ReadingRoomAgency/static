@@ -5,15 +5,18 @@
 
 {% block content %}
 
-{# Header #}
-{% include './header/_header.html' %}
-
-<h2>This is the {{pageTitle}} page</h2>
-
-{# Navigation - contact #}
-{% include './navigation/_navigation.html' %}
-
-{# Footer #}
-{% include './footer/_footer.html' %}
+{% for component in pageData %}
+  {% set componentData = component.componentData %}
+  {% if component.componentName === 'navigation' %}
+    {# Navigation - home #}
+    {% include './navigation/_navigation.html' %}
+  {% elif component.componentName === 'gallery' %}
+    {# Gallery - home #}
+    {% include './gallery/_gallery.html' %}
+  {% elif component.componentName === 'spotlight' %}
+    {# Spotlight - home #}
+    {% include './spotlight/_spotlight.html' %}
+  {% endif %}
+{% endfor %}
 
 {% endblock %}

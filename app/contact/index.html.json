@@ -1,3 +1,26 @@
 {
-
+  "pageData": [
+    {
+      "componentName": "navigation",
+      "componentData": {
+        "navItems": [
+          {
+            "href": "/",
+            "activePageName": "home",
+            "linkText": "Home"
+          },
+          {
+            "href": "/about",
+            "activePageName": "about",
+            "linkText": "About"
+          },
+          {
+            "href": "/contact",
+            "activePageName": "contact",
+            "linkText": "Contact"
+          }
+        ]
+      }
+    }
+  ]
 }

@@ -1,0 +1,11 @@
+<aside>
+  {% for spotlight in componentData.spotlights %}
+  <section>
+    <h3>{{ spotlight.header }}</h3>
+    <p>{{ spotlight.paragraph }}</p>
+    {% if spotlight.subcomponentData !== null %}
+      {% include '../subcomponent/_subcomponent.html' %}
+    {% endif %}
+  </section>
+  {% endfor %}
+</aside>
