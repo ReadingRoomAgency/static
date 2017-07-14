@@ -1,0 +1,13 @@
+<article>
+  <div class="Gallery">
+    {# Loops through "images" array #}
+    {% for image in componentData.images %}
+    <div class="Gallery-item">
+      <a href="{{image.url}}">
+        <img src="{{image.src}}" alt="{{image.alt}}" height="200" width="400">
+      </a>
+      <p>{{image.caption}}</p>
+    </div>
+    {% endfor %}
+  </div>
+</article>

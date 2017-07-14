@@ -1,23 +1,79 @@
 {
-  "images": [{
-    "src": "http://lorempixel.com/400/200/animals/1",
-    "alt": "Image one alt text",
-    "url": "#na",
-    "caption": "Caption 1"
-  }, {
-    "src": "http://lorempixel.com/400/200/animals/2",
-    "alt": "Image two alt text",
-    "url": "#na",
-    "caption": "Caption 2"
-  }, {
-    "src": "http://lorempixel.com/400/200/animals/3",
-    "alt": "Image three alt text",
-    "url": "#na",
-    "caption": "Caption 3"
-  }, {
-    "src": "http://lorempixel.com/400/200/animals/4",
-    "alt": "Image four alt text",
-    "url": "#na",
-    "caption": "Caption 4"
-  }]
+  "pageData": [
+    {
+      "componentName": "navigation",
+      "componentData": {
+        "navItems": [
+          {
+            "href": "/",
+            "activePageName": "home",
+            "linkText": "Home"
+          },
+          {
+            "href": "/about",
+            "activePageName": "about",
+            "linkText": "About"
+          },
+          {
+            "href": "/contact",
+            "activePageName": "contact",
+            "linkText": "Contact"
+          }
+        ]
+      }
+    },
+    {
+      "componentName": "gallery",
+      "componentData": {
+        "images": [
+          {
+          "src": "http://lorempixel.com/400/200/animals/1",
+          "alt": "Image one alt text",
+          "url": "#na",
+          "caption": "Caption 1"
+          },
+          {
+          "src": "http://lorempixel.com/400/200/animals/2",
+          "alt": "Image two alt text",
+          "url": "#na",
+          "caption": "Caption 2"
+          },
+          {
+          "src": "http://lorempixel.com/400/200/animals/3",
+          "alt": "Image three alt text",
+          "url": "#na",
+          "caption": "Caption 3"
+          },
+          {
+          "src": "http://lorempixel.com/400/200/animals/4",
+          "alt": "Image four alt text",
+          "url": "#na",
+          "caption": "Caption 4"
+          }
+        ]
+      }
+    },
+    {
+      "componentName": "spotlight",
+      "componentData": {
+        "spotlights": [
+          {
+            "header": "Spotlight header 1",
+            "paragraph": "Lorem ipsum"
+          },
+          {
+            "header": "Spotlight header 2",
+            "paragraph": "Lorem ipsum dolor sit amet."
+          },
+          {
+            "header": "Spotlight header 3",
+            "paragraph": "Lorem ipsum dolor sit amet herp derp.",
+            "subcomponentData": {
+              "text": "This is an optional subcomponent"
+            }
+          }
+        ]
+      }
+    }
+  ]
 }

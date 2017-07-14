@@ -1,7 +1,8 @@
 <nav class="SiteNav">
   <ul>
-    <li><a href="/" class="{%if primaryActivePage == 'home' %}is-active{% endif %}">Home</a></li>
-    <li><a href="/about" class="{%if primaryActivePage == 'about' %}is-active {% endif %}">About</a></li>
-    <li><a href="/contact" class="{%if primaryActivePage == 'contact' %}is-active {% endif %}">Contact</a></li>
+    {% for navItem in componentData.navItems %}
+    <li><a href="{{ navItem.href }}" class="{%if primaryActivePage === navItem.activePageName %}is-active{% endif %}">{{ navItem.linkText }}</a></li>
+    {% endfor %}
   </ul>
+  <h2>This is the {{ pageTitle }} page</h2>
 </nav>
