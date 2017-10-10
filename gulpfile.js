@@ -177,7 +177,7 @@ gulp.task('serve', [
   gulp.watch([
     './app/_assets/js/*.js',
     './app/_components/**/*.js',
-  ], ['webpack']);
+  ], ['browserify']);
 });
 
 gulp.task('default', ['serve']);
