@@ -4,7 +4,6 @@ const postcss = require('gulp-postcss');
 const scss = require('postcss-scss');
 const reporter = require('postcss-reporter');
 const autoprefixer = require('autoprefixer');
-const bemLinter = require('postcss-bem-linter');
 const cssnano = require('cssnano');
 const gulpStylelint = require('gulp-stylelint');
 const stylelint = require('stylelint');
@@ -19,15 +18,14 @@ const fs = require('fs');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
 const uglify = require('gulp-uglify');
+const modernizr = require('gulp-modernizr');
 
 // Nunjuck templating, for static site generation
 gulp.task('nunjucks', () => {
   // Gets .html files in the app folder that don't start with underscore
   gulp.src('./app/**/!(_)*.html')
   // Adding data to Nunjucks
-  .pipe(data(function (file) {
-    return JSON.parse(fs.readFileSync(`${file.path}.json`));
-  }))
+  .pipe(data(file => JSON.parse(fs.readFileSync(`${file.path}.json`))))
   // Renders template with nunjucks
   .pipe(nunjucksRender({
     path: './app/_components',
@@ -57,7 +55,6 @@ gulp.task('sass', ['lint-scss'], () => {
   gulp.src('./app/_assets/scss/*.scss')
   .pipe(sass().on('error', sass.logError))
   .pipe(postcss([
-    bemLinter('suit'),
     autoprefixer({ browsers: [
       'last 2 version',
       '> 1%',
@@ -103,8 +100,21 @@ gulp.task('lint-js', () => {
   .pipe(eslint.failAfterError());
 });
 
+// Modernizr
+gulp.task('modernizr', () => {
+  gulp.src([
+    './app/_assets/scss/*.scss',
+    './app/_components/**/*.scss',
+    './app/_assets/js/*.js',
+    './app/_assets/_components/**/*.js',
+  ])
+  .pipe(modernizr('modernizr.min.js'))
+  .pipe(uglify())
+  .pipe(gulp.dest('./dist/_assets/js'));
+});
+
 // Browserify
-gulp.task('browserify', ['lint-js'], () => {
+gulp.task('browserify', ['lint-js', 'modernizr'], () => {
   browserify({ debug: true })
   // return browserify('./app/_assets/js/main.js')
   .transform('babelify')
